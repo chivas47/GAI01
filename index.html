@@ -1,0 +1,618 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>A Empresa por Dentro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=DM+Mono:wght@500&display=swap">
+<style>
+/* Layout: riso-poster colour blocking. Each topic is a full-bleed band in its own ink; white "stickers" with thick outlines and hard shadows sit on top. Deliberately single-theme. */
+:root{
+  --ink:#0B0B0F; --paper:#F6F5F1; --white:#FFFFFF;
+  --blue:#1E37FF; --pink:#FF4FA8; --orange:#FF6B1A; --violet:#6A35F2; --yellow:#FFE500;
+  --ok:#00A65A; --bad:#E3122A;
+  --f-display:"Archivo","Arial Black",Impact,system-ui,sans-serif;
+  --f-body:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"DM Mono",ui-monospace,Menlo,Consolas,monospace;
+  --bw:3px; --sh:6px 6px 0 var(--ink);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-variation-settings:"wdth" 100;font-size:1.125rem;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1040px;margin:0 auto;padding-inline:16px}
+h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance;overflow-wrap:break-word}
+h2{font-size:clamp(2.6rem,12vw,6rem);font-weight:900;font-variation-settings:"wdth" 112;text-transform:uppercase;line-height:.88;letter-spacing:-.02em}
+h3{font-size:1.35rem;font-weight:800;line-height:1.15}
+p{margin:0}
+a{color:inherit;text-underline-offset:3px;text-decoration-thickness:2px}
+:focus-visible{outline:4px solid var(--yellow);outline-offset:3px;box-shadow:0 0 0 7px var(--ink)}
+.mono{font-family:var(--f-mono);font-size:1rem}
+.label{font-family:var(--f-body);font-variation-settings:"wdth" 62;font-weight:800;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase}
+
+/* Nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--ink)}
+.nav ul{list-style:none;margin:0 auto;max-width:1040px;padding:10px 16px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none}
+.nav ul::-webkit-scrollbar{display:none}
+.nav a{display:block;white-space:nowrap;text-decoration:none;color:var(--white);font-weight:800;font-variation-settings:"wdth" 75;text-transform:uppercase;letter-spacing:.04em;font-size:1rem;padding:8px 14px;border-radius:999px;border:2px solid #3A3A46}
+.nav a.on{background:var(--yellow);color:var(--ink);border-color:var(--yellow)}
+
+/* Hero */
+.hero{background:var(--yellow);border-bottom:var(--bw) solid var(--ink);position:relative;overflow:hidden}
+.hero .wrap{padding-block:36px 40px;display:grid;gap:22px;position:relative}
+.hero h1{font-size:clamp(3.3rem,16vw,9.5rem);font-weight:900;font-variation-settings:"wdth" 125;text-transform:uppercase;line-height:.82;letter-spacing:-.03em}
+.hero h1 .out{color:transparent;-webkit-text-stroke:3px var(--ink)}
+.hero h1 .blk{display:inline-block;background:var(--ink);color:var(--yellow);padding:0 .08em;transform:rotate(-2deg)}
+.hero p{max-width:52ch;font-size:1.25rem;font-weight:500}
+.sticker{position:absolute;right:16px;top:22px;width:108px;height:108px;border-radius:50%;background:var(--pink);border:var(--bw) solid var(--ink);display:grid;place-items:center;text-align:center;font-weight:900;font-variation-settings:"wdth" 70;text-transform:uppercase;line-height:1;font-size:1.1rem;transform:rotate(12deg);box-shadow:var(--sh);animation:spin 18s linear infinite}
+@keyframes spin{to{transform:rotate(372deg)}}
+.sticker b{display:block;font-size:2.1rem;font-variation-settings:"wdth" 110}
+.hero-pad{padding-right:120px}
+@media (max-width:520px){.sticker{width:88px;height:88px;font-size:1rem;top:16px}.sticker b{font-size:1.6rem}.hero-pad{padding-right:96px}}
+
+/* Marquee */
+.marquee{background:var(--ink);color:var(--yellow);overflow:hidden;border-bottom:var(--bw) solid var(--ink);white-space:nowrap}
+.marquee div{display:inline-flex;gap:28px;padding:12px 0;animation:mq 30s linear infinite;font-weight:900;font-variation-settings:"wdth" 110;text-transform:uppercase;font-size:1.25rem}
+.marquee span::after{content:"●";margin-left:28px;color:var(--pink)}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* Index */
+.index{padding-block:36px 8px}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{display:flex;flex-direction:column;justify-content:space-between;gap:18px;min-height:150px;padding:16px;border:var(--bw) solid var(--ink);box-shadow:var(--sh);text-decoration:none;color:var(--ink);transition:transform .15s,box-shadow .15s}
+.tile:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}
+.tile:active{transform:translate(4px,4px);box-shadow:2px 2px 0 var(--ink)}
+.tile .n{font-family:var(--f-display);font-weight:900;font-variation-settings:"wdth" 125;font-size:3.4rem;line-height:.8}
+.tile strong{font-weight:800;font-size:1.2rem;line-height:1.15}
+.t1{grid-column:span 2;background:var(--blue);color:var(--white)}
+.t2{background:var(--pink)} .t3{background:var(--orange)}
+.t4{grid-column:span 2;background:var(--violet);color:var(--white)}
+.t5{grid-column:span 2;background:var(--white);flex-direction:row;align-items:center;min-height:auto}
+@media (min-width:780px){.bento{grid-template-columns:repeat(4,1fr)}.t5{grid-column:span 2}}
+
+/* Bands */
+.band{border-top:var(--bw) solid var(--ink);border-bottom:var(--bw) solid var(--ink);margin-top:48px}
+.band>.wrap{padding-block:44px 52px;display:grid;gap:22px}
+.band.blue{background:var(--blue);color:var(--white)}
+.band.pink{background:var(--pink)}
+.band.orange{background:var(--orange)}
+.band.violet{background:var(--violet);color:var(--white)}
+.band.yellow{background:var(--yellow)}
+.band + .band{margin-top:0;border-top:0}
+.head{display:grid;gap:10px}
+.kicker{display:inline-flex;align-self:start;justify-self:start;gap:10px;align-items:center;background:var(--ink);color:var(--white);padding:6px 12px;font-family:var(--f-mono);font-size:1rem}
+.sub{font-size:1.3rem;font-weight:700;max-width:40ch;line-height:1.3}
+.lead{font-size:1.2rem;max-width:62ch}
+
+/* Stickers (cards) */
+.card{background:var(--white);color:var(--ink);border:var(--bw) solid var(--ink);box-shadow:var(--sh);padding:18px;display:grid;gap:12px;min-width:0}
+.card .label{color:var(--ink)}
+.def{background:var(--white);color:var(--ink);border:var(--bw) solid var(--ink);box-shadow:var(--sh);padding:20px;font-size:1.3rem;font-weight:600;line-height:1.4;max-width:46ch;transform:rotate(-1deg)}
+.def strong{background:var(--yellow);padding:0 4px}
+.grid{display:grid;gap:16px}
+@media (min-width:780px){.g2{grid-template-columns:1fr 1fr}.g3{grid-template-columns:repeat(3,1fr)}}
+ul.clean{margin:0;padding-left:1.1em;display:grid;gap:6px}
+.small{font-size:1rem}
+.chip{display:inline-block;font-family:var(--f-mono);font-size:1rem;padding:2px 10px;border:2px solid var(--ink);background:var(--yellow);color:var(--ink)}
+
+/* Table */
+.scroll{overflow-x:auto;border:var(--bw) solid var(--ink);box-shadow:var(--sh);background:var(--white)}
+table{border-collapse:collapse;width:100%;min-width:560px;font-size:1rem;font-variant-numeric:tabular-nums;color:var(--ink)}
+th,td{text-align:left;padding:12px 14px;border-bottom:2px solid var(--ink);vertical-align:top}
+th{background:var(--ink);color:var(--white);font-weight:800;text-transform:uppercase;font-variation-settings:"wdth" 75;letter-spacing:.04em}
+tr:last-child td{border-bottom:0}
+.note{font-size:1rem;opacity:.9}
+
+/* Legal forms */
+.forms{display:grid;gap:16px}
+@media (min-width:780px){.forms{grid-template-columns:repeat(2,1fr)}}
+.form header{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+.suffix{font-family:var(--f-mono);font-size:1rem;background:var(--pink);color:var(--ink);border:2px solid var(--ink);padding:2px 10px;transform:rotate(2deg)}
+.form dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:1rem}
+.form dt{font-weight:500}
+.form dd{margin:0;font-weight:800}
+.resp{display:inline-block;padding:1px 10px;font-weight:800;border:2px solid var(--ink)}
+.resp.lim{background:#B8F5D3}
+.resp.ilim{background:#FFC4CC}
+
+/* Practice */
+.practice{background:var(--ink);color:var(--white);border:var(--bw) solid var(--ink);box-shadow:8px 8px 0 var(--yellow);padding:20px;display:grid;gap:16px}
+.practice .label{color:var(--yellow)}
+.practice .q{font-family:var(--f-display);font-size:clamp(1.6rem,6vw,2.4rem);font-weight:900;font-variation-settings:"wdth" 100;line-height:1.08}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opts button{font:800 1rem var(--f-body);font-variation-settings:"wdth" 85;padding:10px 14px;border:2px solid var(--white);background:transparent;color:var(--white);cursor:pointer;min-height:46px;text-transform:uppercase;letter-spacing:.02em}
+.opts button:hover:not(:disabled){background:var(--white);color:var(--ink)}
+.opts button.right{background:var(--ok);border-color:var(--ok);color:var(--white)}
+.opts button.wrong{background:var(--bad);border-color:var(--bad);color:var(--white)}
+.opts button:disabled{cursor:default}
+.fb{min-height:1.6em;font-size:1.1rem;font-weight:500}
+.prow{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.btn{font:900 1rem var(--f-body);text-transform:uppercase;letter-spacing:.04em;padding:12px 20px;border:var(--bw) solid var(--yellow);background:var(--yellow);color:var(--ink);cursor:pointer;min-height:46px}
+
+/* Functions */
+.funcs{display:grid;gap:16px}
+@media (min-width:780px){.funcs{grid-template-columns:repeat(2,1fr)}.funcs .fn:last-child{grid-column:span 2}}
+.fn header{display:flex;gap:14px;align-items:center}
+.badge{flex:none;display:grid;place-items:center;width:58px;height:58px;font-family:var(--f-display);font-weight:900;font-variation-settings:"wdth" 110;font-size:1.4rem;border:var(--bw) solid var(--ink)}
+.b1{background:var(--blue);color:var(--white)}.b2{background:var(--yellow)}.b3{background:var(--pink)}.b4{background:var(--orange)}.b5{background:var(--violet);color:var(--white)}
+.fn .it{font-size:1rem;border-top:2px dashed var(--ink);padding-top:10px}
+
+/* Structure */
+.types{display:grid;gap:16px}
+@media (min-width:780px){.types{grid-template-columns:repeat(2,1fr)}}
+.pc{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;font-size:1rem}
+.pc b{font-family:var(--f-mono);font-size:1.1rem}
+.pc .p{color:var(--ok)} .pc .c{color:var(--bad)}
+.tree,.tree ul{list-style:none;margin:0;padding:0}
+.tree ul{margin-left:20px}
+.tree li{position:relative;padding-top:10px}
+.tree ul>li{padding-left:22px;border-left:3px solid var(--ink)}
+.tree ul>li:last-child{border-left-color:transparent}
+.tree ul>li::before{content:"";position:absolute;left:-3px;top:0;width:20px;height:32px;border-left:3px solid var(--ink);border-bottom:3px solid var(--ink)}
+.tree li.staff-row::before{border-bottom-style:dashed}
+.node{display:inline-block;background:var(--white);border:var(--bw) solid var(--ink);padding:6px 12px;font-weight:800;font-size:1rem}
+.node.top{background:var(--ink);color:var(--yellow)}
+.node.staff{border-style:dashed;font-weight:600}
+.node.dept{background:var(--orange)}
+.legend{display:flex;flex-wrap:wrap;gap:18px;font-size:1rem;font-weight:600}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:30px;border-top:3px solid var(--ink)}
+.legend i.d{border-top-style:dashed}
+
+/* Flow */
+.flow{list-style:none;margin:0;padding:0;display:grid;counter-reset:s}
+.step{display:grid;grid-template-columns:52px 1fr;gap:14px;position:relative;padding-bottom:22px}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:52px;height:52px;background:var(--yellow);color:var(--ink);border:var(--bw) solid var(--ink);font-family:var(--f-display);font-weight:900;font-size:1.5rem;z-index:1}
+.step::after{content:"";position:absolute;left:24px;top:52px;bottom:0;border-left:4px solid var(--ink)}
+.step:last-child::after{display:none}
+.dir{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:1rem;font-weight:800;text-transform:uppercase;font-variation-settings:"wdth" 80}
+.who{padding:2px 10px;border:2px solid var(--ink)}
+.who.c{background:var(--pink)} .who.f{background:#C8F0FF}
+.arrow{font-family:var(--f-mono)}
+.code{font-family:var(--f-mono);font-size:1rem;background:var(--paper);border:2px solid var(--ink);justify-self:start;padding:2px 8px}
+.invoice{background:var(--white);color:var(--ink);border:var(--bw) solid var(--ink);box-shadow:var(--sh);padding:18px;display:grid;gap:10px;font-size:1rem;transform:rotate(1deg)}
+.invoice .ih{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;border-bottom:3px solid var(--ink);padding-bottom:10px}
+.invoice .row{display:flex;justify-content:space-between;gap:12px;font-variant-numeric:tabular-nums}
+.invoice .tot{border-top:3px solid var(--ink);padding-top:8px;font-weight:900;font-size:1.15rem}
+.callout{font-family:var(--f-mono);background:var(--yellow);padding:0 6px;border:2px solid var(--ink)}
+
+/* Activities */
+.progress{display:flex;align-items:center;gap:12px;font-size:1rem;font-weight:800}
+.bar{flex:1;height:18px;border:var(--bw) solid var(--ink);background:var(--white)}
+.bar span{display:block;height:100%;width:0;background:var(--ink);transition:width .3s}
+.case{background:var(--white);border:var(--bw) dashed var(--ink);padding:18px;font-size:1.1rem;display:grid;gap:8px}
+.acts{display:grid;gap:18px}
+@media (min-width:780px){.acts{grid-template-columns:repeat(2,1fr)}}
+.act header{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.act .big{font-family:var(--f-display);font-weight:900;font-variation-settings:"wdth" 125;font-size:2.8rem;line-height:.8}
+.act ol{margin:0;padding-left:1.3em;display:grid;gap:8px}
+.deliver{background:var(--ink);color:var(--white);padding:12px 14px;font-size:1rem}
+.check{display:flex;gap:10px;align-items:center;font-weight:900;text-transform:uppercase;font-size:1rem;cursor:pointer}
+.check input{width:26px;height:26px;accent-color:var(--ok)}
+.act.done{background:#E3FFEE}
+.act.done .big{color:var(--ok)}
+
+footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
+</style>
+
+<nav class="nav" aria-label="Secções">
+  <ul>
+    <li><a href="#empresa">1 Empresa</a></li>
+    <li><a href="#funcoes">2 Funções</a></li>
+    <li><a href="#estrutura">3 Estrutura</a></li>
+    <li><a href="#circuitos">4 Circuitos</a></li>
+    <li><a href="#atividades">Atividades</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="sticker" aria-hidden="true"><span>GAI<b>10.º</b>ano</span></div>
+    <span class="kicker hero-pad">Técnico/a de Informática de Gestão</span>
+    <h1 class="hero-pad">A <span class="out">empresa</span><br><span class="blk">por dentro</span></h1>
+    <p>O que é uma empresa, como se organiza e por onde circulam os seus documentos. Lê, treina nos exercícios rápidos e no fim faz as quatro atividades.</p>
+  </div>
+</header>
+<div class="marquee" aria-hidden="true"><div>
+  <span>Forma jurídica</span><span>Sociedade por quotas</span><span>Organigrama</span><span>Nota de encomenda</span><span>Guia de remessa</span><span>Fatura</span><span>Recibo</span><span>Recursos humanos</span>
+  <span>Forma jurídica</span><span>Sociedade por quotas</span><span>Organigrama</span><span>Nota de encomenda</span><span>Guia de remessa</span><span>Fatura</span><span>Recibo</span><span>Recursos humanos</span>
+</div></div>
+
+<div class="wrap index">
+  <div class="bento">
+    <a class="tile t1" href="#empresa"><span class="n">01</span><strong>A empresa: conceito, tipos e formas jurídicas</strong></a>
+    <a class="tile t2" href="#funcoes"><span class="n">02</span><strong>Funções da empresa</strong></a>
+    <a class="tile t3" href="#estrutura"><span class="n">03</span><strong>Estrutura e organigramas</strong></a>
+    <a class="tile t4" href="#circuitos"><span class="n">04</span><strong>Circuitos de informação e documentos</strong></a>
+    <a class="tile t5" href="#atividades"><strong>4 atividades para entregar</strong><span class="mono" id="miniProg">0 / 4</span></a>
+  </div>
+</div>
+
+<main>
+  <!-- 1 -->
+  <section class="band blue" id="empresa"><div class="wrap">
+    <div class="head">
+      <span class="kicker">Tema 1</span>
+      <h2>A empresa</h2>
+      <p class="sub">Conceito, tipos e formas jurídicas</p>
+    </div>
+    <p class="def">Uma <strong>empresa</strong> é uma organização que junta pessoas, capital, materiais e informação para produzir bens ou prestar serviços, com o objetivo de obter lucro.</p>
+
+    <div class="grid g3">
+      <div class="card"><span class="label">Por setor</span>
+        <ul class="clean">
+          <li><strong>Primário:</strong> extrai recursos da natureza (agricultura, pesca).</li>
+          <li><strong>Secundário:</strong> transforma (indústria, construção).</li>
+          <li><strong>Terciário:</strong> presta serviços (comércio, informática, banca).</li>
+        </ul></div>
+      <div class="card"><span class="label">Por propriedade</span>
+        <ul class="clean">
+          <li><strong>Privada:</strong> capital de particulares.</li>
+          <li><strong>Pública:</strong> capital do Estado.</li>
+          <li><strong>Cooperativa:</strong> pertence aos cooperadores, que decidem em conjunto.</li>
+        </ul></div>
+      <div class="card"><span class="label">Por dimensão</span>
+        <p>Conta o número de trabalhadores e o volume de negócios anual (vendas). Vê a tabela.</p></div>
+    </div>
+
+    <div class="scroll">
+      <table>
+        <thead><tr><th>Dimensão</th><th>Trabalhadores</th><th>Volume de negócios</th><th>ou Balanço total</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Micro</strong></td><td>menos de 10</td><td>até 2 M€</td><td>até 2 M€</td></tr>
+          <tr><td><strong>Pequena</strong></td><td>menos de 50</td><td>até 10 M€</td><td>até 10 M€</td></tr>
+          <tr><td><strong>Média</strong></td><td>menos de 250</td><td>até 50 M€</td><td>até 43 M€</td></tr>
+          <tr><td><strong>Grande</strong></td><td>250 ou mais</td><td>acima de 50 M€</td><td>acima de 43 M€</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="note">Critério europeu das PME (Recomendação 2003/361/CE), usado em Portugal na certificação PME.</p>
+
+    <div class="head" style="margin-top:16px">
+      <span class="label">Formas jurídicas</span>
+      <h3 style="font-size:clamp(1.8rem,7vw,3rem);font-weight:900;font-variation-settings:'wdth' 100;line-height:1">Quem é o dono? Quem paga as dívidas?</h3>
+      <p class="lead">A forma jurídica define quantos donos a empresa tem, o capital mínimo e até onde vai a responsabilidade por dívidas. <strong>Dica:</strong> o fim do nome da empresa revela a forma.</p>
+    </div>
+
+    <div class="forms">
+      <article class="card form">
+        <header><h3>Empresário em Nome Individual</h3><span class="suffix">nome próprio</span></header>
+        <dl><dt>Titulares</dt><dd>1 pessoa</dd><dt>Capital mínimo</dt><dd>não existe</dd><dt>Responsabilidade</dt><dd><span class="resp ilim">ilimitada</span></dd></dl>
+        <p class="small">O património pessoal responde pelas dívidas. Ex.: canalizador, café de bairro.</p>
+      </article>
+      <article class="card form">
+        <header><h3>Estabelecimento Individual de Resp. Limitada</h3><span class="suffix">EIRL</span></header>
+        <dl><dt>Titulares</dt><dd>1 pessoa</dd><dt>Capital mínimo</dt><dd>5 000 €</dd><dt>Responsabilidade</dt><dd><span class="resp lim">limitada</span></dd></dl>
+        <p class="small">Separa uma parte do património para o negócio. Hoje é pouco usado.</p>
+      </article>
+      <article class="card form">
+        <header><h3>Sociedade Unipessoal por Quotas</h3><span class="suffix">Unipessoal, Lda.</span></header>
+        <dl><dt>Sócios</dt><dd>1</dd><dt>Capital mínimo</dt><dd>1 € (livre)</dd><dt>Responsabilidade</dt><dd><span class="resp lim">limitada ao capital</span></dd></dl>
+        <p class="small">A escolha mais comum de quem começa sozinho.</p>
+      </article>
+      <article class="card form">
+        <header><h3>Sociedade por Quotas</h3><span class="suffix">Lda.</span></header>
+        <dl><dt>Sócios</dt><dd>2 ou mais</dd><dt>Capital mínimo</dt><dd>1 € por quota (livre)</dd><dt>Responsabilidade</dt><dd><span class="resp lim">limitada ao capital</span></dd></dl>
+        <p class="small">O capital divide-se em quotas. É a forma da maioria das PME.</p>
+      </article>
+      <article class="card form">
+        <header><h3>Sociedade Anónima</h3><span class="suffix">S.A.</span></header>
+        <dl><dt>Acionistas</dt><dd>5 ou mais</dd><dt>Capital mínimo</dt><dd>50 000 €</dd><dt>Responsabilidade</dt><dd><span class="resp lim">limitada às ações</span></dd></dl>
+        <p class="small">O capital divide-se em ações. Típica das grandes empresas; pode estar na bolsa.</p>
+      </article>
+      <article class="card form">
+        <header><h3>Sociedade em Nome Coletivo</h3><span class="suffix">&amp; Companhia</span></header>
+        <dl><dt>Sócios</dt><dd>2 ou mais</dd><dt>Capital mínimo</dt><dd>não existe</dd><dt>Responsabilidade</dt><dd><span class="resp ilim">ilimitada e solidária</span></dd></dl>
+        <p class="small">Cada sócio pode ter de pagar todas as dívidas. Rara hoje em dia.</p>
+      </article>
+      <article class="card form">
+        <header><h3>Cooperativa</h3><span class="suffix">CRL</span></header>
+        <dl><dt>Cooperadores</dt><dd>3 ou mais</dd><dt>Capital</dt><dd>variável</dd><dt>Responsabilidade</dt><dd><span class="resp lim">limitada</span></dd></dl>
+        <p class="small">Cada cooperador tem um voto, seja qual for o capital que entrou.</p>
+      </article>
+    </div>
+
+    <div class="practice" id="quizForma">
+      <div class="prow"><span class="label">Treino rápido · Descobre a forma jurídica</span><span class="mono" data-score>0 / 6</span></div>
+      <p class="q" data-q></p>
+      <div class="opts" data-opts></div>
+      <p class="fb" data-fb aria-live="polite"></p>
+      <div class="prow"><span class="mono" data-pos></span><button class="btn" data-next hidden>Seguinte</button></div>
+    </div>
+  </div></section>
+
+  <!-- 2 -->
+  <section class="band pink" id="funcoes"><div class="wrap">
+    <div class="head">
+      <span class="kicker">Tema 2</span>
+      <h2>Funções</h2>
+      <p class="sub">Comercial, financeira, recursos humanos, produção e administrativa</p>
+      <p class="lead">Mesmo numa microempresa existem as cinco. Numa empresa pequena a mesma pessoa faz várias; numa grande, cada uma tem o seu departamento.</p>
+    </div>
+    <div class="funcs">
+      <article class="card fn"><header><span class="badge b1">C</span><h3>Comercial</h3></header>
+        <p>Compra e vende: conhece o mercado, define preços, faz publicidade, atende clientes e negocia com fornecedores.</p>
+        <p class="it"><strong>Na informática:</strong> CRM, loja online, redes sociais, catálogo de produtos.</p></article>
+      <article class="card fn"><header><span class="badge b2">F</span><h3>Financeira</h3></header>
+        <p>Gere o dinheiro: obtém financiamento, paga, recebe, controla a tesouraria e garante a contabilidade e os impostos.</p>
+        <p class="it"><strong>Na informática:</strong> software de faturação certificado, homebanking, Portal das Finanças.</p></article>
+      <article class="card fn"><header><span class="badge b3">RH</span><h3>Recursos Humanos</h3></header>
+        <p>Gere as pessoas: recruta, forma, avalia, processa salários, férias e faltas, e cuida da segurança no trabalho.</p>
+        <p class="it"><strong>Na informática:</strong> processamento salarial, Segurança Social Direta, mapas de férias.</p></article>
+      <article class="card fn"><header><span class="badge b4">P</span><h3>Produção</h3></header>
+        <p>Cria o produto ou presta o serviço: planeia, controla a qualidade e gere os stocks de materiais e peças.</p>
+        <p class="it"><strong>Na informática:</strong> ordens de reparação, gestão de stocks, planeamento de tarefas.</p></article>
+      <article class="card fn"><header><span class="badge b5">A</span><h3>Administrativa</h3></header>
+        <p>Coordena o conjunto: planeia, organiza, dirige e controla. Trata também do expediente, correspondência e arquivo.</p>
+        <p class="it"><strong>Na informática:</strong> gestão documental, arquivo digital, email e agenda partilhada.</p></article>
+    </div>
+
+    <div class="practice" id="quizFuncao">
+      <div class="prow"><span class="label">Treino rápido · Que função faz isto?</span><span class="mono" data-score>0 / 10</span></div>
+      <p class="q" data-q></p>
+      <div class="opts" data-opts></div>
+      <p class="fb" data-fb aria-live="polite"></p>
+      <div class="prow"><span class="mono" data-pos></span><button class="btn" data-next hidden>Seguinte</button></div>
+    </div>
+  </div></section>
+
+  <!-- 3 -->
+  <section class="band orange" id="estrutura"><div class="wrap">
+    <div class="head">
+      <span class="kicker">Tema 3</span>
+      <h2>Estrutura</h2>
+      <p class="sub">Estrutura organizacional e organigramas</p>
+    </div>
+    <p class="def">A <strong>estrutura organizacional</strong> é a forma como a empresa divide o trabalho, agrupa as pessoas em departamentos e define quem manda em quem. O <strong>organigrama</strong> é o desenho dessa estrutura.</p>
+
+    <div class="grid g2">
+      <div class="card"><span class="label">Conceitos-chave</span>
+        <ul class="clean">
+          <li><strong>Hierarquia:</strong> níveis de autoridade, do topo à base.</li>
+          <li><strong>Unidade de comando:</strong> cada pessoa responde a um só chefe.</li>
+          <li><strong>Amplitude de controlo:</strong> quantas pessoas um chefe coordena.</li>
+          <li><strong>Departamentalização:</strong> agrupar tarefas parecidas num departamento.</li>
+          <li><strong>Staff (assessoria):</strong> aconselha, mas não dá ordens (ex.: jurista).</li>
+        </ul></div>
+      <div class="card"><span class="label">Regras do organigrama</span>
+        <ul class="clean">
+          <li>Cada caixa é um órgão ou cargo, com nome claro.</li>
+          <li>Linha contínua: autoridade hierárquica.</li>
+          <li>Linha tracejada: assessoria (staff).</li>
+          <li>Caixas do mesmo nível ficam à mesma altura.</li>
+          <li>O topo é a gestão; descer é descer na hierarquia.</li>
+        </ul></div>
+    </div>
+
+    <div class="types">
+      <article class="card"><h3>Linear (hierárquica)</h3><p>Uma linha direta de autoridade do topo à base.</p>
+        <div class="pc"><b class="p">+</b><span>simples, ordens claras</span><b class="c">−</b><span>rígida, chefe sobrecarregado</span></div></article>
+      <article class="card"><h3>Funcional</h3><p>Departamentos por função: comercial, financeiro, RH...</p>
+        <div class="pc"><b class="p">+</b><span>especialização</span><b class="c">−</b><span>departamentos isolados</span></div></article>
+      <article class="card"><h3>Divisional</h3><p>Divisões por produto, cliente ou região, cada uma com as suas funções.</p>
+        <div class="pc"><b class="p">+</b><span>foco no mercado</span><b class="c">−</b><span>recursos duplicados</span></div></article>
+      <article class="card"><h3>Matricial</h3><p>Cruza funções com projetos: cada pessoa tem um chefe de função e um de projeto.</p>
+        <div class="pc"><b class="p">+</b><span>flexível, boa para projetos</span><b class="c">−</b><span>dois chefes, conflitos</span></div></article>
+    </div>
+
+    <div class="card">
+      <div class="prow"><span class="label">Exemplo · estrutura funcional</span><span class="chip">Atlântico Software, S.A.</span></div>
+      <ul class="tree" aria-label="Organigrama da Atlântico Software">
+        <li><span class="node top">Conselho de Administração</span>
+          <ul>
+            <li class="staff-row"><span class="node staff">Assessoria Jurídica (staff)</span></li>
+            <li><span class="node dept">Dep. Comercial</span>
+              <ul><li><span class="node">Vendas</span></li><li><span class="node">Marketing</span></li></ul></li>
+            <li><span class="node dept">Dep. Financeiro</span>
+              <ul><li><span class="node">Contabilidade</span></li><li><span class="node">Tesouraria</span></li></ul></li>
+            <li><span class="node dept">Dep. Recursos Humanos</span></li>
+            <li><span class="node dept">Dep. Produção</span>
+              <ul><li><span class="node">Equipa Web</span></li><li><span class="node">Equipa Apps</span></li><li><span class="node">Suporte</span></li></ul></li>
+            <li><span class="node dept">Dep. Administrativo</span></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="legend"><span><i></i>autoridade</span><span><i class="d"></i>assessoria</span></div>
+    </div>
+  </div></section>
+
+  <!-- 4 -->
+  <section class="band violet" id="circuitos"><div class="wrap">
+    <div class="head">
+      <span class="kicker">Tema 4</span>
+      <h2>Circuitos</h2>
+      <p class="sub">Circuitos de informação e documentos</p>
+    </div>
+    <p class="def">Um <strong>circuito de informação</strong> é o caminho que um documento percorre: quem o cria, por que departamentos passa, para quem vai e onde fica arquivado.</p>
+
+    <div class="grid g3">
+      <div class="card"><span class="label">Interno</span><p>Circula dentro da empresa. Ex.: requisição de material ao armazém.</p></div>
+      <div class="card"><span class="label">Externo</span><p>Entra ou sai da empresa. Ex.: fatura para um cliente.</p></div>
+      <div class="card"><span class="label">Direção</span><p><strong>Descendente</strong> (ordens), <strong>ascendente</strong> (relatórios) e <strong>horizontal</strong> (entre departamentos).</p></div>
+    </div>
+
+    <div class="head" style="margin-top:12px">
+      <span class="label">O circuito de uma compra e venda</span>
+      <h3 style="font-size:clamp(1.8rem,7vw,3rem);font-weight:900;line-height:1">Seis documentos, sempre pela mesma ordem</h3>
+    </div>
+    <ol class="flow">
+      <li class="step"><div class="card"><h3>Pedido de orçamento</h3>
+        <div class="dir"><span class="who c">Cliente</span><span class="arrow">──▶</span><span class="who f">Fornecedor</span></div>
+        <p>O cliente pede preços e condições para o que quer comprar.</p><span class="code">Trata: Dep. Comercial (compras)</span></div></li>
+      <li class="step"><div class="card"><h3>Orçamento (proposta)</h3>
+        <div class="dir"><span class="who f">Fornecedor</span><span class="arrow">──▶</span><span class="who c">Cliente</span></div>
+        <p>Preços, prazos de entrega, condições de pagamento e validade da proposta.</p><span class="code">Trata: Dep. Comercial (vendas)</span></div></li>
+      <li class="step"><div class="card"><h3>Nota de encomenda</h3>
+        <div class="dir"><span class="who c">Cliente</span><span class="arrow">──▶</span><span class="who f">Fornecedor</span></div>
+        <p>Confirma a compra: produtos, quantidades e preços acordados.</p><span class="code">NE 2026/031</span></div></li>
+      <li class="step"><div class="card"><h3>Guia de remessa / transporte</h3>
+        <div class="dir"><span class="who f">Fornecedor</span><span class="arrow">──▶</span><span class="who c">Cliente</span></div>
+        <p>Acompanha a mercadoria. O cliente confere o que chegou com o que encomendou e assina.</p><span class="code">GR 2026/087 · Produção / Armazém</span></div></li>
+      <li class="step"><div class="card"><h3>Fatura</h3>
+        <div class="dir"><span class="who f">Fornecedor</span><span class="arrow">──▶</span><span class="who c">Cliente</span></div>
+        <p>Documento fiscal da venda. Diz o valor a pagar, com IVA. Fica registada no Portal das Finanças (e-Fatura).</p><span class="code">FT 2026/142 · Dep. Financeiro</span></div></li>
+      <li class="step"><div class="card"><h3>Recibo</h3>
+        <div class="dir"><span class="who f">Fornecedor</span><span class="arrow">──▶</span><span class="who c">Cliente</span></div>
+        <p>Prova que o pagamento foi feito. Se o pagamento é imediato, usa-se uma <strong>fatura-recibo</strong>.</p><span class="code">RC 2026/120 · Tesouraria</span></div></li>
+    </ol>
+
+    <div class="grid g2">
+      <div class="card"><span class="label">Correções à fatura</span>
+        <ul class="clean"><li><strong>Nota de crédito:</strong> diminui o valor (devolução, desconto, erro a favor do cliente).</li>
+        <li><strong>Nota de débito:</strong> aumenta o valor (portes esquecidos, juros).</li></ul></div>
+      <div class="invoice" aria-label="Exemplo de fatura">
+        <div class="ih"><strong>Pixel Norte, Lda.</strong><span class="mono">FATURA FT 2026/142</span></div>
+        <div class="row"><span>NIF emitente</span><span class="mono">5XX XXX XXX</span></div>
+        <div class="row"><span>NIF cliente</span><span class="mono">2XX XXX XXX</span></div>
+        <div class="row"><span>2 × Portátil 14"</span><span>1 300,00 €</span></div>
+        <div class="row"><span>IVA 23%</span><span>299,00 €</span></div>
+        <div class="row tot"><span>Total</span><span>1 599,00 €</span></div>
+        <div class="row"><span class="callout">ATCUD</span><span class="mono">JFM3P4Q8-142</span></div>
+        <p>Obrigatório: nomes, NIF de ambos, número e data, descrição, quantidades, preços, taxa e valor do IVA, ATCUD e código QR.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <!-- Activities -->
+  <section class="band yellow" id="atividades"><div class="wrap">
+    <div class="head">
+      <span class="kicker">Atividades</span>
+      <h2>Agora é contigo</h2>
+      <div class="progress"><div class="bar"><span id="bar"></span></div><span class="mono" id="prog">0 / 4 feitas</span></div>
+    </div>
+
+    <div class="case">
+      <span class="label">Caso para as atividades 2 e 3</span>
+      <p>A <strong>Pixel Norte, Lda.</strong> vende e repara equipamento informático em Odivelas. Tem 2 sócias-gerentes e 10 trabalhadores. A <strong>Rita</strong> faz a gestão geral e decide os investimentos. A <strong>Inês</strong> coordena a loja, com 3 vendedores ao balcão e 1 pessoa que gere o site e as redes sociais. A oficina tem 1 chefe técnico e 3 técnicos de reparação, que respondem à Rita. A <strong>Joana</strong> emite faturas, paga aos fornecedores, recebe dos clientes e trata dos salários e das férias; trabalha com um contabilista certificado externo. O <strong>Paulo</strong> faz as encomendas aos fornecedores e controla o armazém de peças.</p>
+    </div>
+
+    <div class="acts">
+      <article class="card act" data-act="a1">
+        <header><span class="big">01</span><span class="chip">pares</span></header>
+        <h3>Caracterizar empresas reais</h3>
+        <ol>
+          <li>Escolhe 3 empresas portuguesas reais, de formas jurídicas diferentes (uma tem de ser S.A.).</li>
+          <li>Pesquisa cada uma em <a href="https://www.racius.com" target="_blank" rel="noopener">racius.com</a> ou em <a href="https://publicacoes.mj.pt" target="_blank" rel="noopener">publicacoes.mj.pt</a>.</li>
+          <li>Preenche para cada uma: nome, forma jurídica, n.º de sócios, capital social, atividade (código CAE), setor e dimensão.</li>
+          <li>Explica numa frase porque achas que escolheram aquela forma jurídica.</li>
+        </ol>
+        <p class="deliver"><strong>Entrega:</strong> tabela numa folha de cálculo com as 7 colunas.</p>
+        <label class="check"><input type="checkbox" id="a1"> Feita</label>
+      </article>
+      <article class="card act" data-act="a2">
+        <header><span class="big">02</span><span class="chip">individual</span></header>
+        <h3>Identificar as funções</h3>
+        <ol>
+          <li>Lê o caso da Pixel Norte.</li>
+          <li>Para cada pessoa, indica que função ou funções da empresa desempenha.</li>
+          <li>Indica que função é parcialmente feita por alguém de fora da empresa.</li>
+          <li>Diz que função está mais sobrecarregada e propõe uma solução.</li>
+        </ol>
+        <p class="deliver"><strong>Entrega:</strong> tabela Pessoa · Tarefas · Função, mais 3 linhas de conclusão.</p>
+        <label class="check"><input type="checkbox" id="a2"> Feita</label>
+      </article>
+      <article class="card act" data-act="a3">
+        <header><span class="big">03</span><span class="chip">individual</span></header>
+        <h3>Construir o organigrama</h3>
+        <ol>
+          <li>Com base no caso, desenha o organigrama da Pixel Norte.</li>
+          <li>Usa linha tracejada para o contabilista externo (assessoria).</li>
+          <li>Identifica o tipo de estrutura e justifica.</li>
+          <li>Depois desenha o organigrama da vossa microempresa do projeto.</li>
+        </ol>
+        <p class="deliver"><strong>Entrega:</strong> 2 organigramas feitos em Draw.io, Canva ou SmartArt, exportados em PNG.</p>
+        <label class="check"><input type="checkbox" id="a3"> Feita</label>
+      </article>
+      <article class="card act" data-act="a4">
+        <header><span class="big">04</span><span class="chip">pares</span></header>
+        <h3>Mapear o circuito de um documento</h3>
+        <ol>
+          <li>A Pixel Norte compra 5 portáteis a um fornecedor. Paga a 30 dias.</li>
+          <li>Desenha o circuito completo, do pedido de orçamento ao recibo.</li>
+          <li>Em cada passo indica: documento, quem emite, quem recebe e que departamento trata.</li>
+          <li>Acrescenta o que acontece se um portátil chegar avariado e for devolvido.</li>
+        </ol>
+        <p class="deliver"><strong>Entrega:</strong> fluxograma com raias (Cliente | Fornecedor).</p>
+        <label class="check"><input type="checkbox" id="a4"> Feita</label>
+      </article>
+    </div>
+  </div></section>
+</main>
+
+<footer><div class="wrap">
+  <span>Fontes: Código das Sociedades Comerciais, Código do IVA, Código Cooperativo, Recomendação 2003/361/CE.</span>
+  <span>GAI · Gestão e Aplicações Informáticas · Agrupamento de Escolas de Alvalade</span>
+</div></footer>
+
+<script>
+(function(){
+  function quiz(root, items, options){
+    var i=0, score=0;
+    var q=root.querySelector('[data-q]'), opts=root.querySelector('[data-opts]'),
+        fb=root.querySelector('[data-fb]'), next=root.querySelector('[data-next]'),
+        sc=root.querySelector('[data-score]'), pos=root.querySelector('[data-pos]');
+    function render(){
+      var it=items[i]; q.textContent=it.q; fb.textContent=''; next.hidden=true; opts.innerHTML='';
+      pos.textContent=(i+1)+' de '+items.length;
+      options.forEach(function(o){
+        var b=document.createElement('button'); b.type='button'; b.textContent=o;
+        b.onclick=function(){
+          var ok=o===it.a;
+          opts.querySelectorAll('button').forEach(function(x){x.disabled=true; if(x.textContent===it.a)x.classList.add('right');});
+          if(!ok)b.classList.add('wrong'); else score++;
+          sc.textContent=score+' / '+items.length;
+          fb.textContent=(ok?'Certo. ':'Não. ')+it.why;
+          next.hidden=false; next.textContent=i<items.length-1?'Seguinte':'Recomeçar'; next.focus({preventScroll:true});
+        };
+        opts.appendChild(b);
+      });
+    }
+    next.onclick=function(){ if(i<items.length-1){i++;}else{i=0;score=0;sc.textContent='0 / '+items.length;} render(); };
+    render();
+  }
+
+  quiz(document.getElementById('quizForma'), [
+    {q:'TecnoSul, Lda.', a:'Soc. por Quotas', why:'"Lda." sem "Unipessoal" indica 2 ou mais sócios.'},
+    {q:'Marta Gomes, Unipessoal Lda.', a:'Unipessoal por Quotas', why:'Um só sócio, responsabilidade limitada ao capital.'},
+    {q:'Navegantes Digitais, S.A.', a:'Soc. Anónima', why:'"S.A.": capital em ações, mínimo 50 000 €.'},
+    {q:'Ana Ribeiro, Cabeleireira', a:'ENI', why:'Só o nome da pessoa: empresário em nome individual, responsabilidade ilimitada.'},
+    {q:'AgroVale, CRL', a:'Cooperativa', why:'"CRL" significa Cooperativa de Responsabilidade Limitada.'},
+    {q:'João Silva, EIRL', a:'EIRL', why:'Estabelecimento Individual de Responsabilidade Limitada, capital mínimo 5 000 €.'}
+  ], ['ENI','EIRL','Unipessoal por Quotas','Soc. por Quotas','Soc. Anónima','Cooperativa']);
+
+  quiz(document.getElementById('quizFuncao'), [
+    {q:'Publicar uma campanha de desconto no Instagram.', a:'Comercial', why:'Promoção e publicidade são função comercial.'},
+    {q:'Pagar a fatura de um fornecedor.', a:'Financeira', why:'Pagamentos e recebimentos são tesouraria.'},
+    {q:'Entrevistar candidatos para técnico.', a:'Recursos Humanos', why:'Recrutar é gerir pessoas.'},
+    {q:'Reparar um portátil e testá-lo antes de entregar.', a:'Produção', why:'É a prestação do serviço da empresa.'},
+    {q:'Arquivar os contratos assinados.', a:'Administrativa', why:'Expediente e arquivo são tarefas administrativas.'},
+    {q:'Pedir um empréstimo ao banco para comprar uma carrinha.', a:'Financeira', why:'Obter financiamento é função financeira.'},
+    {q:'Negociar preço com um novo fornecedor de peças.', a:'Comercial', why:'Compras e negociação com fornecedores são função comercial.'},
+    {q:'Calcular os salários do mês.', a:'Recursos Humanos', why:'Processamento salarial é de RH (o pagamento sai pela tesouraria).'},
+    {q:'Controlar o stock de discos SSD.', a:'Produção', why:'Gerir os materiais usados no serviço é função de produção.'},
+    {q:'Definir os objetivos da empresa para o próximo ano.', a:'Administrativa', why:'Planear e dirigir é a gestão (função administrativa).'}
+  ], ['Comercial','Financeira','Recursos Humanos','Produção','Administrativa']);
+
+  var ids=['a1','a2','a3','a4'];
+  function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
+  function update(){
+    var n=ids.filter(function(id){return document.getElementById(id).checked;}).length;
+    document.getElementById('prog').textContent=n+' / 4 feitas';
+    document.getElementById('miniProg').textContent=n+' / 4';
+    document.getElementById('bar').style.width=(n*25)+'%';
+    ids.forEach(function(id){document.querySelector('[data-act="'+id+'"]').classList.toggle('done',document.getElementById(id).checked);});
+  }
+  ids.forEach(function(id){
+    var c=document.getElementById(id); c.checked=store('gai-emp-'+id)==='1';
+    c.addEventListener('change',function(){store('gai-emp-'+id,c.checked?'1':'0');update();});
+  });
+  update();
+
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-40% 0px -55% 0px'});
+    document.querySelectorAll('section.band').forEach(function(s){io.observe(s);});
+  }
+})();
+</script>
+
+</body></html>
