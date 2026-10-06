@@ -191,6 +191,30 @@ tr:last-child td{border-bottom:0}
 .act.done{background:#E3FFEE}
 .act.done .big{color:var(--ok)}
 
+/* Extra detail blocks */
+.band.white{background:var(--white)}
+.det{border:2px solid var(--ink);padding:8px 12px;background:var(--paper);font-size:1rem}
+.det summary{cursor:pointer;font-weight:800;text-transform:uppercase;font-variation-settings:"wdth" 80;letter-spacing:.03em}
+.det[open] summary{margin-bottom:8px}
+.det p+p,.det ul{margin-top:6px}
+.det ul{margin-bottom:0;padding-left:1.1em;display:grid;gap:4px}
+.meta{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:1rem;border-top:2px dashed var(--ink);padding-top:10px}
+.meta dt{font-weight:800}
+.meta dd{margin:0}
+.tasks{font-size:1rem}
+.tasks+.it{margin-top:0}
+.three{display:grid;gap:16px}
+@media (min-width:780px){.three{grid-template-columns:repeat(3,1fr)}}
+.gl{display:grid;gap:0 28px;margin:0}
+@media (min-width:780px){.gl{grid-template-columns:1fr 1fr}}
+.gl div{border-top:2px solid var(--ink);padding:10px 0}
+.gl dt{font-weight:900;font-size:1.1rem}
+.gl dd{margin:2px 0 0;font-size:1rem}
+.act .tm{font-size:1rem;font-weight:600}
+.act h4{margin:4px 0 0;font:800 .95rem var(--f-body);font-variation-settings:"wdth" 75;text-transform:uppercase;letter-spacing:.05em}
+.act .tpl{width:100%;min-width:0;font-size:.95rem;margin-top:6px}
+.act .tpl th,.act .tpl td{padding:6px 8px}
+.act .scroll{box-shadow:none}
 footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
 </style>
 
@@ -200,6 +224,7 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
     <li><a href="#funcoes">2 Funções</a></li>
     <li><a href="#estrutura">3 Estrutura</a></li>
     <li><a href="#circuitos">4 Circuitos</a></li>
+    <li><a href="#glossario">Glossário</a></li>
     <li><a href="#atividades">Atividades</a></li>
   </ul>
 </nav>
@@ -238,6 +263,25 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
     <p class="def">Uma <strong>empresa</strong> é uma organização que junta pessoas, capital, materiais e informação para produzir bens ou prestar serviços, com o objetivo de obter lucro.</p>
 
     <div class="grid g3">
+      <div class="card"><span class="label">O que a empresa junta</span>
+        <ul class="clean">
+          <li><strong>Pessoas:</strong> sócios, gestores e trabalhadores.</li>
+          <li><strong>Capital:</strong> dinheiro dos sócios e empréstimos.</li>
+          <li><strong>Materiais:</strong> instalações, equipamento, matérias-primas, stock.</li>
+          <li><strong>Informação e tecnologia:</strong> dados, software, conhecimento, lista de clientes.</li>
+        </ul></div>
+      <div class="card"><span class="label">Para que existe</span>
+        <ul class="clean">
+          <li><strong>Lucro</strong> = rendimentos (o que recebe) − gastos (o que paga).</li>
+          <li><strong>Sobreviver e crescer</strong> no mercado.</li>
+          <li><strong>Satisfazer clientes</strong> com produtos e serviços.</li>
+          <li><strong>Responsabilidade social:</strong> emprego, impostos, ambiente.</li>
+        </ul></div>
+      <div class="card"><span class="label">Nem tudo é empresa</span>
+        <p>Associações, IPSS (como um lar de idosos) e escolas públicas também são organizações, mas o seu objetivo <strong>não é o lucro</strong>. Se houver sobras, são reinvestidas na missão.</p></div>
+    </div>
+
+    <div class="grid g3">
       <div class="card"><span class="label">Por setor</span>
         <ul class="clean">
           <li><strong>Primário:</strong> extrai recursos da natureza (agricultura, pesca).</li>
@@ -248,10 +292,10 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
         <ul class="clean">
           <li><strong>Privada:</strong> capital de particulares.</li>
           <li><strong>Pública:</strong> capital do Estado.</li>
-          <li><strong>Cooperativa:</strong> pertence aos cooperadores, que decidem em conjunto.</li>
+          <li><strong>Cooperativa:</strong> pertence aos cooperadores, que decidem em conjunto (a lei trata-a como um setor à parte).</li>
         </ul></div>
       <div class="card"><span class="label">Por dimensão</span>
-        <p>Conta o número de trabalhadores e o volume de negócios anual (vendas). Vê a tabela.</p></div>
+        <p>Contam-se três números: os <strong>trabalhadores</strong>, o <strong>volume de negócios</strong> (vendas num ano) e o <strong>balanço total</strong> (o valor de tudo o que a empresa possui). Tens de cumprir o limite dos trabalhadores <em>e</em> um dos dois limites em euros. Vê a tabela.</p></div>
     </div>
 
     <div class="scroll">
@@ -265,7 +309,13 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
         </tbody>
       </table>
     </div>
-    <p class="note">Critério europeu das PME (Recomendação 2003/361/CE), usado em Portugal na certificação PME.</p>
+    <p class="note">Critério europeu das PME (Recomendação 2003/361/CE), usado em Portugal na certificação PME. Contam-se também os sócios que trabalham na empresa. Não confundas com "micro-entidade" da contabilidade, que usa outros limites.</p>
+
+    <details class="det">
+      <summary>Desafio: que dimensão tem a Pixel Norte?</summary>
+      <p>A Pixel Norte tem 2 sócias que trabalham na loja, mais 10 trabalhadores, e vende 900 000 € por ano. É micro ou pequena?</p>
+      <p><strong>Resposta:</strong> 2 + 10 = 12 pessoas, por isso já não é micro (menos de 10). Tem menos de 50 pessoas e vendas até 10 M€: é uma <strong>pequena empresa</strong>.</p>
+    </details>
 
     <div class="head" style="margin-top:16px">
       <span class="label">Formas jurídicas</span>
@@ -311,8 +361,47 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
       </article>
     </div>
 
+    <div class="grid g2">
+      <div class="card"><span class="label">Responsabilidade: o que significa?</span>
+        <ul class="clean">
+          <li><strong>Ilimitada:</strong> se a empresa não paga, os credores podem cobrar do património pessoal do dono (casa, carro, poupanças).</li>
+          <li><strong>Limitada:</strong> o dono só perde o capital que meteu na empresa.</li>
+          <li><strong>Atenção:</strong> mesmo numa Lda., se um sócio der uma garantia pessoal (aval) ao banco, responde com o seu património por essa dívida.</li>
+        </ul></div>
+      <div class="card"><span class="label">Que forma escolher?</span>
+        <ul class="clean">
+          <li>Sozinho, pouco risco, quer começar já: <strong>ENI</strong>.</li>
+          <li>Sozinho, mas quer proteger a casa: <strong>Unipessoal, Lda.</strong></li>
+          <li>Dois ou mais amigos: <strong>Lda.</strong></li>
+          <li>Muito capital e muitos investidores: <strong>S.A.</strong></li>
+          <li>O objetivo é servir os membros, não o lucro: <strong>Cooperativa</strong>.</li>
+        </ul></div>
+    </div>
+
+    <div class="head" style="margin-top:12px">
+      <span class="label">Como se cria uma empresa</span>
+      <h3 style="font-size:clamp(1.8rem,7vw,3rem);font-weight:900;font-variation-settings:'wdth' 100;line-height:1">Sete passos, do nome ao registo</h3>
+      <p class="lead">Em Portugal, vários destes passos podem ser feitos de uma vez no serviço <strong>Empresa na Hora</strong> (ao balcão) ou <strong>Empresa Online</strong> (na internet). Confirma no ePortugal o que está incluído em cada um.</p>
+    </div>
+    <ol class="flow">
+      <li class="step"><div class="card"><h3>Escolher a forma jurídica e a atividade</h3>
+        <p>Decide quantos sócios há, quanto capital existe e que risco aceitam. Escolhe o <strong>CAE</strong>, o código da atividade económica (ex.: comércio a retalho de computadores).</p></div></li>
+      <li class="step"><div class="card"><h3>Escolher o nome (firma)</h3>
+        <p>O nome tem de ser único e acabar com a forma jurídica (Lda., S.A....). Pede um certificado de admissibilidade de firma ou usa um nome já aprovado.</p></div></li>
+      <li class="step"><div class="card"><h3>Definir sócios, capital e contrato</h3>
+        <p>O <strong>contrato de sociedade</strong> diz quem são os sócios, quanto cada um entra, qual a atividade (objeto social), a sede e quem é o gerente.</p></div></li>
+      <li class="step"><div class="card"><h3>Registo comercial</h3>
+        <p>A sociedade só existe como pessoa jurídica depois de registada. Recebe o <strong>NIPC</strong>, o número de identificação da pessoa coletiva.</p></div></li>
+      <li class="step"><div class="card"><h3>Início de atividade nas Finanças</h3>
+        <p>Declara o CAE, o regime de IVA e o tipo de contabilidade (simplificada ou organizada). A partir daqui podes emitir faturas.</p></div></li>
+      <li class="step"><div class="card"><h3>Segurança Social e seguros</h3>
+        <p>Inscreve a empresa e os gerentes na Segurança Social. Se tiver trabalhadores, é obrigatório o <strong>seguro de acidentes de trabalho</strong>.</p></div></li>
+      <li class="step"><div class="card"><h3>Beneficiário efetivo e licenças</h3>
+        <p>Declara no <strong>RCBE</strong> quem são os donos reais da empresa. Se a atividade o exigir (ex.: loja aberta ao público), pede também as licenças municipais.</p></div></li>
+    </ol>
+
     <div class="practice" id="quizForma">
-      <div class="prow"><span class="label">Treino rápido · Descobre a forma jurídica</span><span class="mono" data-score>0 / 6</span></div>
+      <div class="prow"><span class="label">Treino rápido · Descobre a forma jurídica</span><span class="mono" data-score>0 / 10</span></div>
       <p class="q" data-q></p>
       <div class="opts" data-opts></div>
       <p class="fb" data-fb aria-live="polite"></p>
@@ -331,23 +420,41 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
     <div class="funcs">
       <article class="card fn"><header><span class="badge b1">C</span><h3>Comercial</h3></header>
         <p>Compra e vende: conhece o mercado, define preços, faz publicidade, atende clientes e negocia com fornecedores.</p>
-        <p class="it"><strong>Na informática:</strong> CRM, loja online, redes sociais, catálogo de produtos.</p></article>
+        <ul class="clean tasks"><li>Estudo de mercado e definição de preços e promoções.</li><li>Vendas, atendimento e pós-venda (garantias, reclamações).</li><li>Compras: pedir orçamentos e negociar com fornecedores.</li></ul>
+        <p class="it"><strong>Documentos:</strong> pedido de orçamento, orçamento, nota de encomenda.<br><strong>Na informática:</strong> CRM, loja online, redes sociais, catálogo de produtos.</p></article>
       <article class="card fn"><header><span class="badge b2">F</span><h3>Financeira</h3></header>
         <p>Gere o dinheiro: obtém financiamento, paga, recebe, controla a tesouraria e garante a contabilidade e os impostos.</p>
-        <p class="it"><strong>Na informática:</strong> software de faturação certificado, homebanking, Portal das Finanças.</p></article>
+        <ul class="clean tasks"><li>Financiamento: capital dos sócios, empréstimos bancários.</li><li>Tesouraria: pagar e receber, prever o dinheiro em caixa.</li><li>Contabilidade e impostos (IVA, IRC) e controlo de custos.</li></ul>
+        <p class="it"><strong>Documentos:</strong> fatura, recibo, extrato bancário, declaração de IVA.<br><strong>Na informática:</strong> software de faturação certificado, homebanking, Portal das Finanças.</p></article>
       <article class="card fn"><header><span class="badge b3">RH</span><h3>Recursos Humanos</h3></header>
         <p>Gere as pessoas: recruta, forma, avalia, processa salários, férias e faltas, e cuida da segurança no trabalho.</p>
-        <p class="it"><strong>Na informática:</strong> processamento salarial, Segurança Social Direta, mapas de férias.</p></article>
+        <ul class="clean tasks"><li>Recrutamento, seleção e contrato de trabalho.</li><li>Processamento de salários, descontos e Segurança Social.</li><li>Férias, faltas, formação, avaliação e segurança no trabalho.</li></ul>
+        <p class="it"><strong>Documentos:</strong> contrato de trabalho, recibo de vencimento, mapa de férias.<br><strong>Na informática:</strong> processamento salarial, Segurança Social Direta, mapas de férias.</p></article>
       <article class="card fn"><header><span class="badge b4">P</span><h3>Produção</h3></header>
         <p>Cria o produto ou presta o serviço: planeia, controla a qualidade e gere os stocks de materiais e peças.</p>
-        <p class="it"><strong>Na informática:</strong> ordens de reparação, gestão de stocks, planeamento de tarefas.</p></article>
+        <ul class="clean tasks"><li>Planear o trabalho e executá-lo (fabricar, reparar, desenvolver).</li><li>Controlar a qualidade antes de entregar.</li><li>Gerir o armazém: entradas, saídas e stock mínimo.</li></ul>
+        <p class="it"><strong>Documentos:</strong> ordem de reparação, requisição de material, guia de remessa.<br><strong>Na informática:</strong> ordens de reparação, gestão de stocks, planeamento de tarefas.</p></article>
       <article class="card fn"><header><span class="badge b5">A</span><h3>Administrativa</h3></header>
         <p>Coordena o conjunto: planeia, organiza, dirige e controla. Trata também do expediente, correspondência e arquivo.</p>
-        <p class="it"><strong>Na informática:</strong> gestão documental, arquivo digital, email e agenda partilhada.</p></article>
+        <ul class="clean tasks"><li><strong>Planear:</strong> definir objetivos. <strong>Organizar:</strong> distribuir tarefas e recursos.</li><li><strong>Dirigir:</strong> decidir e motivar. <strong>Controlar:</strong> comparar o resultado com o plano.</li><li>Expediente: receber, registar, enviar e arquivar documentos.</li></ul>
+        <p class="it"><strong>Documentos:</strong> ofícios, atas, contratos, relatórios.<br><strong>Na informática:</strong> gestão documental, arquivo digital, email e agenda partilhada.</p></article>
+    </div>
+
+    <div class="card">
+      <span class="label">Uma venda atravessa as cinco funções</span>
+      <p>Um cliente pede 5 portáteis à Pixel Norte. Quem faz o quê?</p>
+      <ol class="clean">
+        <li><strong>Comercial:</strong> faz o orçamento, negoceia e fecha a venda.</li>
+        <li><strong>Produção:</strong> o armazém separa os portáteis, a oficina instala e testa o software.</li>
+        <li><strong>Financeira:</strong> emite a fatura e recebe o pagamento.</li>
+        <li><strong>Administrativa:</strong> arquiva o contrato e os documentos da venda.</li>
+        <li><strong>Recursos Humanos:</strong> no mês seguinte, processa a comissão do vendedor no salário.</li>
+      </ol>
+      <p class="small">As funções não vivem isoladas: quando uma falha (por exemplo, stock mal controlado), todas as outras sentem.</p>
     </div>
 
     <div class="practice" id="quizFuncao">
-      <div class="prow"><span class="label">Treino rápido · Que função faz isto?</span><span class="mono" data-score>0 / 10</span></div>
+      <div class="prow"><span class="label">Treino rápido · Que função faz isto?</span><span class="mono" data-score>0 / 15</span></div>
       <p class="q" data-q></p>
       <div class="opts" data-opts></div>
       <p class="fb" data-fb aria-live="polite"></p>
@@ -383,6 +490,41 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
         </ul></div>
     </div>
 
+    <div class="three">
+      <div class="card"><span class="label">Topo · estratégico</span><p>Define os objetivos e decide os grandes investimentos. Ex.: administração, gerência.</p></div>
+      <div class="card"><span class="label">Meio · tático</span><p>Transforma os objetivos em planos e coordena equipas. Ex.: diretores e chefes de departamento.</p></div>
+      <div class="card"><span class="label">Base · operacional</span><p>Executa as tarefas do dia a dia. Ex.: vendedores, técnicos, operadores.</p></div>
+    </div>
+
+    <div class="grid g2">
+      <div class="card"><span class="label">Mais três conceitos</span>
+        <ul class="clean">
+          <li><strong>Delegação:</strong> o chefe passa uma tarefa, com a autoridade necessária, a um subordinado. A responsabilidade final continua a ser do chefe.</li>
+          <li><strong>Centralização:</strong> as decisões são tomadas no topo. <strong>Descentralização:</strong> são tomadas também nos níveis abaixo.</li>
+          <li><strong>Autoridade e responsabilidade</strong> andam juntas: quem responde pelo resultado tem de poder decidir.</li>
+        </ul></div>
+      <div class="card"><span class="label">Erros comuns nos organigramas</span>
+        <ul class="clean">
+          <li>Uma caixa com duas linhas a subir (dois chefes). Só é aceitável na estrutura matricial.</li>
+          <li>Assessoria (staff) desenhada com linha contínua.</li>
+          <li>Caixas do mesmo nível a alturas diferentes.</li>
+          <li>Caixas soltas, sem ligação a nenhum chefe.</li>
+          <li>Esquecer a legenda das linhas.</li>
+        </ul></div>
+    </div>
+
+    <div class="card">
+      <span class="label">Como desenhar um organigrama, passo a passo</span>
+      <ol class="clean">
+        <li>Lista todos os cargos (a função de cada pessoa, não só o nome).</li>
+        <li>Para cada cargo escreve "responde a ___". Tem de haver um só chefe.</li>
+        <li>Agrupa os cargos em níveis: topo, meio e base.</li>
+        <li>Desenha o topo em cima e vai descendo. Os cargos do mesmo nível ficam alinhados.</li>
+        <li>Liga com linha contínua (autoridade). Liga as assessorias com linha tracejada, saindo do lado.</li>
+        <li>Confere: cada caixa, exceto o topo, tem uma só linha a subir. Acrescenta a legenda.</li>
+      </ol>
+    </div>
+
     <div class="types">
       <article class="card"><h3>Linear (hierárquica)</h3><p>Uma linha direta de autoridade do topo à base.</p>
         <div class="pc"><b class="p">+</b><span>simples, ordens claras</span><b class="c">−</b><span>rígida, chefe sobrecarregado</span></div></article>
@@ -413,6 +555,30 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
       </ul>
       <div class="legend"><span><i></i>autoridade</span><span><i class="d"></i>assessoria</span></div>
     </div>
+
+    <div class="card">
+      <div class="prow"><span class="label">Exemplo · estrutura matricial</span><span class="chip">Estúdio Onda, Lda.</span></div>
+      <p>Cada pessoa responde ao chefe da sua função (coluna da esquerda) e ao gestor do projeto onde está a trabalhar (linha de cima).</p>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Função (chefe)</th><th>Projeto Loja Online</th><th>Projeto App</th></tr></thead>
+          <tbody>
+            <tr><td><strong>Design</strong> (Marta)</td><td>Ana</td><td>Bruno</td></tr>
+            <tr><td><strong>Programação</strong> (Hugo)</td><td>Carla, Diogo</td><td>Eva</td></tr>
+            <tr><td><strong>Testes</strong> (Sílvia)</td><td>Filipe</td><td>Filipe</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">O Filipe trabalha nos dois projetos: responde à Sílvia e aos gestores dos dois projetos. É a vantagem (flexibilidade) e o problema (vários chefes) desta estrutura.</p>
+    </div>
+
+    <div class="practice" id="quizEstrutura">
+      <div class="prow"><span class="label">Treino rápido · Que tipo de estrutura?</span><span class="mono" data-score>0 / 7</span></div>
+      <p class="q" data-q></p>
+      <div class="opts" data-opts></div>
+      <p class="fb" data-fb aria-live="polite"></p>
+      <div class="prow"><span class="mono" data-pos></span><button class="btn" data-next hidden>Seguinte</button></div>
+    </div>
   </div></section>
 
   <!-- 4 -->
@@ -425,35 +591,69 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
     <p class="def">Um <strong>circuito de informação</strong> é o caminho que um documento percorre: quem o cria, por que departamentos passa, para quem vai e onde fica arquivado.</p>
 
     <div class="grid g3">
-      <div class="card"><span class="label">Interno</span><p>Circula dentro da empresa. Ex.: requisição de material ao armazém.</p></div>
-      <div class="card"><span class="label">Externo</span><p>Entra ou sai da empresa. Ex.: fatura para um cliente.</p></div>
-      <div class="card"><span class="label">Direção</span><p><strong>Descendente</strong> (ordens), <strong>ascendente</strong> (relatórios) e <strong>horizontal</strong> (entre departamentos).</p></div>
+      <div class="card"><span class="label">Interno</span><p>Circula dentro da empresa. Ex.: requisição de material ao armazém, mapa de férias, ordem de reparação.</p></div>
+      <div class="card"><span class="label">Externo</span><p>Entra ou sai da empresa. Ex.: fatura para um cliente, nota de encomenda a um fornecedor.</p></div>
+      <div class="card"><span class="label">Direção</span><ul class="clean"><li><strong>Descendente:</strong> ordens, ex.: ordem de serviço.</li><li><strong>Ascendente:</strong> relatórios, ex.: relatório de vendas.</li><li><strong>Horizontal:</strong> entre departamentos, ex.: o Comercial pede ao armazém para reservar stock.</li></ul></div>
+    </div>
+
+    <div class="card">
+      <span class="label">Exemplo de circuito interno · requisição de material</span>
+      <ol class="clean">
+        <li>O técnico preenche a <strong>requisição</strong> (2 vias): que peça, quantas, para que reparação.</li>
+        <li>O chefe técnico autoriza e assina.</li>
+        <li>O armazém (Paulo) entrega a peça e regista a saída do stock.</li>
+        <li>Se o stock ficar abaixo do mínimo, o Paulo faz uma nota de encomenda ao fornecedor: o circuito interno passa a externo.</li>
+      </ol>
+      <p class="small"><strong>Porque é útil:</strong> sabes sempre quem levou o quê, e o stock do sistema bate certo com o das prateleiras.</p>
     </div>
 
     <div class="head" style="margin-top:12px">
       <span class="label">O circuito de uma compra e venda</span>
-      <h3 style="font-size:clamp(1.8rem,7vw,3rem);font-weight:900;line-height:1">Seis documentos, sempre pela mesma ordem</h3>
+      <h3 style="font-size:clamp(1.8rem,7vw,3rem);font-weight:900;line-height:1">Seis documentos, quase sempre por esta ordem</h3>
+      <p class="lead">Em vendas rápidas, vários passos juntam-se: ao balcão, uma fatura-recibo (ou fatura simplificada) pode substituir quase tudo. Aqui vês o circuito completo, com pagamento a prazo.</p>
     </div>
     <ol class="flow">
       <li class="step"><div class="card"><h3>Pedido de orçamento</h3>
         <div class="dir"><span class="who c">Cliente</span><span class="arrow">──▶</span><span class="who f">Fornecedor</span></div>
-        <p>O cliente pede preços e condições para o que quer comprar.</p><span class="code">Trata: Dep. Comercial (compras)</span></div></li>
+        <p>O cliente pede preços e condições para o que quer comprar.</p><span class="code">Trata: Dep. Comercial (compras)</span>
+        <dl class="meta"><dt>Contém</dt><dd>Descrição e quantidade dos produtos, prazo para responder.</dd><dt>Arquivo</dt><dd>Cópia fica nas compras do cliente.</dd><dt>Atenção</dt><dd>Pede a vários fornecedores para poderes comparar.</dd></dl></div></li>
       <li class="step"><div class="card"><h3>Orçamento (proposta)</h3>
         <div class="dir"><span class="who f">Fornecedor</span><span class="arrow">──▶</span><span class="who c">Cliente</span></div>
-        <p>Preços, prazos de entrega, condições de pagamento e validade da proposta.</p><span class="code">Trata: Dep. Comercial (vendas)</span></div></li>
+        <p>Preços, prazos de entrega, condições de pagamento e validade da proposta.</p><span class="code">Trata: Dep. Comercial (vendas)</span>
+        <dl class="meta"><dt>Contém</dt><dd>Preço unitário, IVA, descontos, prazo de entrega, pagamento (ex.: 30 dias), validade.</dd><dt>Arquivo</dt><dd>Cópia no fornecedor; o cliente junta-a ao dossiê da compra.</dd><dt>Atenção</dt><dd>Só vale dentro da validade indicada.</dd></dl></div></li>
       <li class="step"><div class="card"><h3>Nota de encomenda</h3>
         <div class="dir"><span class="who c">Cliente</span><span class="arrow">──▶</span><span class="who f">Fornecedor</span></div>
-        <p>Confirma a compra: produtos, quantidades e preços acordados.</p><span class="code">NE 2026/031</span></div></li>
+        <p>Confirma a compra: produtos, quantidades e preços acordados.</p><span class="code">NE 2026/031</span>
+        <dl class="meta"><dt>Contém</dt><dd>Número e data, artigos, quantidades, preços, local e data de entrega, condições de pagamento.</dd><dt>Arquivo</dt><dd>Original para o fornecedor, cópia no cliente.</dd><dt>Atenção</dt><dd>Tem de bater certo com o orçamento aceite.</dd></dl></div></li>
       <li class="step"><div class="card"><h3>Guia de remessa / transporte</h3>
         <div class="dir"><span class="who f">Fornecedor</span><span class="arrow">──▶</span><span class="who c">Cliente</span></div>
-        <p>Acompanha a mercadoria. O cliente confere o que chegou com o que encomendou e assina.</p><span class="code">GR 2026/087 · Produção / Armazém</span></div></li>
+        <p>Acompanha a mercadoria. O cliente confere o que chegou com o que encomendou e assina.</p><span class="code">GR 2026/087 · Produção / Armazém</span>
+        <dl class="meta"><dt>Contém</dt><dd>Quem envia e quem recebe, artigos e quantidades, local de carga e descarga, data de início do transporte.</dd><dt>Arquivo</dt><dd>O original viaja com a mercadoria; o fornecedor guarda uma cópia assinada.</dd><dt>Atenção</dt><dd>Confere quantidades, modelos e estado. Se a caixa vier danificada, escreve uma reserva na guia antes de assinar. Para mercadoria que circula, o fornecedor comunica a guia à Autoridade Tributária antes de a enviar.</dd></dl></div></li>
       <li class="step"><div class="card"><h3>Fatura</h3>
         <div class="dir"><span class="who f">Fornecedor</span><span class="arrow">──▶</span><span class="who c">Cliente</span></div>
-        <p>Documento fiscal da venda. Diz o valor a pagar, com IVA. Fica registada no Portal das Finanças (e-Fatura).</p><span class="code">FT 2026/142 · Dep. Financeiro</span></div></li>
+        <p>Documento fiscal da venda. Diz o valor a pagar, com IVA. Fica registada no Portal das Finanças (e-Fatura).</p><span class="code">FT 2026/142 · Dep. Financeiro</span>
+        <dl class="meta"><dt>Contém</dt><dd>Os elementos obrigatórios (vê o exemplo mais abaixo) e a data de vencimento.</dd><dt>Prazo</dt><dd>Deve ser emitida até ao 5.º dia útil depois da entrega.</dd><dt>Arquivo</dt><dd>Original para o cliente, cópia para o fornecedor. As duas empresas registam-na na contabilidade.</dd><dt>Atenção</dt><dd>O cliente faz a <strong>conferência tripla</strong>: nota de encomenda = guia de remessa = fatura.</dd></dl></div></li>
       <li class="step"><div class="card"><h3>Recibo</h3>
         <div class="dir"><span class="who f">Fornecedor</span><span class="arrow">──▶</span><span class="who c">Cliente</span></div>
-        <p>Prova que o pagamento foi feito. Se o pagamento é imediato, usa-se uma <strong>fatura-recibo</strong>.</p><span class="code">RC 2026/120 · Tesouraria</span></div></li>
+        <p>Prova que o pagamento foi feito. Se o pagamento é imediato, usa-se uma <strong>fatura-recibo</strong>.</p><span class="code">RC 2026/120 · Tesouraria</span>
+        <dl class="meta"><dt>Contém</dt><dd>Número, valor pago, fatura a que se refere, forma e data do pagamento.</dd><dt>Pagamento</dt><dd>Transferência, referência Multibanco, MB Way, cheque ou numerário.</dd><dt>Atenção</dt><dd>Numa venda a 30 dias, o recibo só sai quando o dinheiro entra. Data de vencimento = data da fatura + 30 dias.</dd></dl></div></li>
     </ol>
+
+    <div class="head" style="margin-top:12px">
+      <span class="label">E se algo correr mal?</span>
+      <h3 style="font-size:clamp(1.8rem,7vw,3rem);font-weight:900;line-height:1">Três problemas e o documento que os resolve</h3>
+    </div>
+    <div class="three">
+      <div class="card"><h3>Mercadoria avariada</h3>
+        <ol class="clean"><li>Escreve a reserva na guia e avisa o fornecedor.</li><li>O cliente devolve a mercadoria com uma guia de devolução.</li><li>O fornecedor emite uma <strong>nota de crédito</strong> que reduz a fatura.</li><li>Se já pagaste, recebes o reembolso ou ficas com crédito.</li></ol></div>
+      <div class="card"><h3>Erro na fatura</h3>
+        <p>Preço, quantidade ou NIF errados. Uma fatura emitida <strong>nunca se apaga</strong>.</p>
+        <ol class="clean"><li>O cliente avisa o fornecedor.</li><li>O fornecedor corrige com uma nota de crédito (se o valor desce) ou de débito (se sobe).</li><li>Se for preciso, emite uma nova fatura certa.</li></ol></div>
+      <div class="card"><h3>Pagamento em atraso</h3>
+        <ol class="clean"><li>O fornecedor envia um lembrete e o extrato da conta.</li><li>Pode cobrar juros de mora, com uma nota de débito.</li><li>Em último caso, avança para a cobrança judicial (ex.: injunção).</li></ol></div>
+    </div>
+
+    <p class="note" style="color:inherit">Conservação: os documentos de contabilidade e de IVA guardam-se durante 10 anos, em papel ou em formato digital.</p>
 
     <div class="grid g2">
       <div class="card"><span class="label">Correções à fatura</span>
@@ -463,13 +663,50 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
         <div class="ih"><strong>Pixel Norte, Lda.</strong><span class="mono">FATURA FT 2026/142</span></div>
         <div class="row"><span>NIF emitente</span><span class="mono">5XX XXX XXX</span></div>
         <div class="row"><span>NIF cliente</span><span class="mono">2XX XXX XXX</span></div>
-        <div class="row"><span>2 × Portátil 14"</span><span>1 300,00 €</span></div>
+        <div class="row"><span>2 × Portátil 14" a 650,00 €</span><span>1 300,00 €</span></div>
         <div class="row"><span>IVA 23%</span><span>299,00 €</span></div>
         <div class="row tot"><span>Total</span><span>1 599,00 €</span></div>
         <div class="row"><span class="callout">ATCUD</span><span class="mono">JFM3P4Q8-142</span></div>
         <p>Obrigatório: nomes, NIF de ambos, número e data, descrição, quantidades, preços, taxa e valor do IVA, ATCUD e código QR.</p>
       </div>
     </div>
+
+    <div class="practice" id="quizDoc">
+      <div class="prow"><span class="label">Treino rápido · Que documento é este?</span><span class="mono" data-score>0 / 8</span></div>
+      <p class="q" data-q></p>
+      <div class="opts" data-opts></div>
+      <p class="fb" data-fb aria-live="polite"></p>
+      <div class="prow"><span class="mono" data-pos></span><button class="btn" data-next hidden>Seguinte</button></div>
+    </div>
+  </div></section>
+
+  <!-- Glossary -->
+  <section class="band white" id="glossario"><div class="wrap">
+    <div class="head">
+      <span class="kicker">Para consulta</span>
+      <h2>Glossário</h2>
+      <p class="sub">Os termos dos quatro temas, por ordem alfabética</p>
+    </div>
+    <dl class="gl">
+      <div><dt>Ação</dt><dd>Parte do capital de uma sociedade anónima.</dd></div>
+      <div><dt>ATCUD</dt><dd>Código único do documento, obrigatório nas faturas e noutros documentos fiscais.</dd></div>
+      <div><dt>Balanço total</dt><dd>Valor de tudo o que a empresa possui. Serve para medir a dimensão.</dd></div>
+      <div><dt>CAE</dt><dd>Código da Atividade Económica: diz o que a empresa faz.</dd></div>
+      <div><dt>Capital social</dt><dd>Valor que os sócios metem na empresa quando a criam.</dd></div>
+      <div><dt>Circuito de informação</dt><dd>Caminho que um documento percorre dentro e fora da empresa.</dd></div>
+      <div><dt>Expediente</dt><dd>Tratamento da correspondência e dos documentos: receber, registar, enviar e arquivar.</dd></div>
+      <div><dt>Firma</dt><dd>O nome legal de uma sociedade.</dd></div>
+      <div><dt>Hierarquia</dt><dd>Níveis de autoridade, do topo à base.</dd></div>
+      <div><dt>IVA</dt><dd>Imposto sobre o Valor Acrescentado. A taxa normal em Portugal continental é 23%.</dd></div>
+      <div><dt>NIF / NIPC</dt><dd>Número de identificação fiscal de uma pessoa / de uma pessoa coletiva.</dd></div>
+      <div><dt>Nota de crédito / débito</dt><dd>Documentos que diminuem / aumentam o valor de uma fatura.</dd></div>
+      <div><dt>Organigrama</dt><dd>Desenho da estrutura da empresa: quem manda em quem.</dd></div>
+      <div><dt>Quota</dt><dd>Parte do capital de uma sociedade por quotas.</dd></div>
+      <div><dt>Responsabilidade limitada</dt><dd>O dono só perde o capital investido, não o seu património pessoal.</dd></div>
+      <div><dt>Staff</dt><dd>Órgão de assessoria: aconselha, mas não dá ordens.</dd></div>
+      <div><dt>Tesouraria</dt><dd>Gestão do dinheiro disponível: pagamentos e recebimentos.</dd></div>
+      <div><dt>Volume de negócios</dt><dd>Total das vendas e serviços faturados num ano.</dd></div>
+    </dl>
   </div></section>
 
   <!-- Activities -->
@@ -482,56 +719,88 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
 
     <div class="case">
       <span class="label">Caso para as atividades 2 e 3</span>
-      <p>A <strong>Pixel Norte, Lda.</strong> vende e repara equipamento informático em Odivelas. Tem 2 sócias-gerentes e 10 trabalhadores. A <strong>Rita</strong> faz a gestão geral e decide os investimentos. A <strong>Inês</strong> coordena a loja, com 3 vendedores ao balcão e 1 pessoa que gere o site e as redes sociais. A oficina tem 1 chefe técnico e 3 técnicos de reparação, que respondem à Rita. A <strong>Joana</strong> emite faturas, paga aos fornecedores, recebe dos clientes e trata dos salários e das férias; trabalha com um contabilista certificado externo. O <strong>Paulo</strong> faz as encomendas aos fornecedores e controla o armazém de peças.</p>
+      <p>A <strong>Pixel Norte, Lda.</strong> vende e repara equipamento informático em Odivelas. Tem 2 sócias-gerentes e 10 trabalhadores. A <strong>Rita</strong>, sócia-gerente, faz a gestão geral e decide os investimentos. A <strong>Inês</strong>, também sócia-gerente, coordena a loja, com 3 vendedores ao balcão e 1 pessoa que gere o site e as redes sociais. A oficina tem 1 chefe técnico, que coordena 3 técnicos de reparação. A <strong>Joana</strong> emite faturas, paga aos fornecedores, recebe dos clientes e trata dos salários e das férias; trabalha com um contabilista certificado externo, que a apoia todos os meses. O <strong>Paulo</strong> faz as encomendas aos fornecedores e controla o armazém de peças. A Inês, o chefe técnico, a Joana e o Paulo respondem à Rita.</p>
     </div>
 
     <div class="acts">
       <article class="card act" data-act="a1">
         <header><span class="big">01</span><span class="chip">pares</span></header>
         <h3>Caracterizar empresas reais</h3>
+        <p class="tm">Tempo: cerca de 2 aulas · Ferramenta: folha de cálculo</p>
         <ol>
-          <li>Escolhe 3 empresas portuguesas reais, de formas jurídicas diferentes (uma tem de ser S.A.).</li>
-          <li>Pesquisa cada uma em <a href="https://www.racius.com" target="_blank" rel="noopener">racius.com</a> ou em <a href="https://publicacoes.mj.pt" target="_blank" rel="noopener">publicacoes.mj.pt</a>.</li>
-          <li>Preenche para cada uma: nome, forma jurídica, n.º de sócios, capital social, atividade (código CAE), setor e dimensão.</li>
-          <li>Explica numa frase porque achas que escolheram aquela forma jurídica.</li>
+          <li>Escolhe 3 empresas portuguesas reais, de formas jurídicas diferentes (uma tem de ser S.A.). Varia o tamanho: uma pequena e local, uma média, uma grande.</li>
+          <li>Procura cada uma em <a href="https://www.racius.com" target="_blank" rel="noopener">racius.com</a> e confirma que é a empresa certa pelo NIPC (9 dígitos) ou pela localidade. Em <a href="https://publicacoes.mj.pt" target="_blank" rel="noopener">publicacoes.mj.pt</a> podes ver o capital e os sócios na constituição.</li>
+          <li>Cria a folha com as 7 colunas e preenche uma linha por empresa: nome, forma jurídica, n.º de sócios, capital social, atividade (código CAE), setor e dimensão.</li>
+          <li>Descobre o setor (primário, secundário ou terciário) a partir do CAE. Descobre a dimensão com a tabela do tema 1: precisas dos trabalhadores e das vendas, que podem estar no site da empresa ou no relatório e contas.</li>
+          <li>Se não encontrares um dado, escreve "não disponível" e indica onde procuraste. Não inventes valores.</li>
+          <li>Escreve uma frase por empresa: "Escolheram esta forma porque…". Usa o n.º de sócios, o capital e o risco.</li>
+          <li>Revê: 3 linhas completas, fontes anotadas, nenhuma célula vazia.</li>
         </ol>
+        <details class="det"><summary>Exemplo de linha (empresa inventada)</summary>
+          <p>TecnoBairro, Lda. · Sociedade por quotas · 2 sócios · 5 000 € · CAE 47410 (comércio a retalho de computadores) · Terciário · Pequena · "Dois sócios que partilham o risco e protegem o património pessoal."</p></details>
+        <details class="det"><summary>Como vais ser avaliado/a</summary>
+          <ul><li>As 3 empresas são reais e de formas jurídicas diferentes, uma delas S.A.</li><li>Os 7 campos estão preenchidos e corretos.</li><li>Setor e dimensão batem certo com os dados.</li><li>As justificações usam argumentos da matéria (responsabilidade, sócios, capital).</li><li>As fontes estão indicadas.</li></ul></details>
         <p class="deliver"><strong>Entrega:</strong> tabela numa folha de cálculo com as 7 colunas.</p>
         <label class="check"><input type="checkbox" id="a1"> Feita</label>
       </article>
       <article class="card act" data-act="a2">
         <header><span class="big">02</span><span class="chip">individual</span></header>
         <h3>Identificar as funções</h3>
+        <p class="tm">Tempo: cerca de 1 aula · Ferramenta: folha de cálculo ou texto</p>
         <ol>
-          <li>Lê o caso da Pixel Norte.</li>
-          <li>Para cada pessoa, indica que função ou funções da empresa desempenha.</li>
-          <li>Indica que função é parcialmente feita por alguém de fora da empresa.</li>
-          <li>Diz que função está mais sobrecarregada e propõe uma solução.</li>
+          <li>Lê o caso da Pixel Norte duas vezes. Sublinha com uma cor por pessoa as tarefas que cada uma faz.</li>
+          <li>Faz uma tabela com 3 colunas: Pessoa, Tarefas (copiadas do texto) e Função. Uma pessoa pode ter várias linhas.</li>
+          <li>Classifica cada tarefa numa das 5 funções. Se tiveres dúvidas (por exemplo, os salários), escreve a tua escolha e porquê.</li>
+          <li>Indica a função que é feita em parte por alguém de fora da empresa e o que essa pessoa faz.</li>
+          <li>Conta quantas funções e tarefas tem cada pessoa e descobre quem está mais sobrecarregada.</li>
+          <li>Propõe uma solução concreta: contratar alguém, redistribuir tarefas ou usar software. Indica uma vantagem e um custo ou risco.</li>
+          <li>Escreve 3 linhas de conclusão: (1) a função sobrecarregada, (2) porquê, (3) a solução.</li>
         </ol>
+        <div class="scroll"><table class="tpl"><thead><tr><th>Pessoa</th><th>Tarefas</th><th>Função</th></tr></thead>
+          <tbody><tr><td>Rita</td><td>gestão geral, decide os investimentos</td><td>Administrativa</td></tr><tr><td>…</td><td>…</td><td>…</td></tr></tbody></table></div>
+        <details class="det"><summary>Como vais ser avaliado/a</summary>
+          <ul><li>Todas as pessoas do caso estão na tabela.</li><li>As funções estão bem atribuídas e as dúvidas explicadas.</li><li>Identificas a função parcialmente externa.</li><li>A sobrecarga é justificada com factos do caso.</li><li>A solução é realista e tem a conclusão em 3 linhas.</li></ul></details>
         <p class="deliver"><strong>Entrega:</strong> tabela Pessoa · Tarefas · Função, mais 3 linhas de conclusão.</p>
         <label class="check"><input type="checkbox" id="a2"> Feita</label>
       </article>
       <article class="card act" data-act="a3">
         <header><span class="big">03</span><span class="chip">individual</span></header>
         <h3>Construir o organigrama</h3>
+        <p class="tm">Tempo: cerca de 2 aulas · Ferramenta: Draw.io, Canva ou SmartArt</p>
         <ol>
-          <li>Com base no caso, desenha o organigrama da Pixel Norte.</li>
-          <li>Usa linha tracejada para o contabilista externo (assessoria).</li>
-          <li>Identifica o tipo de estrutura e justifica.</li>
-          <li>Depois desenha o organigrama da vossa microempresa do projeto.</li>
+          <li>Lista os cargos da Pixel Norte (a função de cada pessoa, não só o nome).</li>
+          <li>Para cada cargo escreve "responde a ___". Cada pessoa tem um só chefe.</li>
+          <li>Agrupa os cargos por nível: topo, meio e base.</li>
+          <li>Desenha o organigrama: o topo em cima, cada nível numa linha, caixas alinhadas.</li>
+          <li>Liga com linha contínua (autoridade). Liga o contabilista externo com linha tracejada (assessoria). Acrescenta a legenda.</li>
+          <li>Escreve o tipo de estrutura (linear, funcional, divisional ou matricial) e justifica com 2 razões. Indica uma vantagem e uma desvantagem para a Pixel Norte.</li>
+          <li>Repete os passos 1 a 5 para a vossa microempresa do projeto. Indica quem faz cada uma das 5 funções.</li>
+          <li>Exporta os dois organigramas em PNG (em Draw.io: Ficheiro, Exportar como, PNG). Confirma que se lê bem.</li>
         </ol>
-        <p class="deliver"><strong>Entrega:</strong> 2 organigramas feitos em Draw.io, Canva ou SmartArt, exportados em PNG.</p>
+        <details class="det"><summary>Lista de verificação antes de entregar</summary>
+          <ul><li>Nenhuma caixa tem dois chefes.</li><li>Os cargos do mesmo nível estão à mesma altura.</li><li>O contabilista tem linha tracejada.</li><li>Há legenda.</li><li>O tipo de estrutura está justificado.</li><li>Os dois organigramas estão em PNG.</li></ul></details>
+        <p class="deliver"><strong>Entrega:</strong> 2 organigramas feitos em Draw.io, Canva ou SmartArt, exportados em PNG, com o tipo de estrutura justificado.</p>
         <label class="check"><input type="checkbox" id="a3"> Feita</label>
       </article>
       <article class="card act" data-act="a4">
         <header><span class="big">04</span><span class="chip">pares</span></header>
         <h3>Mapear o circuito de um documento</h3>
+        <p class="tm">Tempo: cerca de 2 aulas · Ferramenta: Draw.io ou Canva</p>
         <ol>
-          <li>A Pixel Norte compra 5 portáteis a um fornecedor. Paga a 30 dias.</li>
-          <li>Desenha o circuito completo, do pedido de orçamento ao recibo.</li>
-          <li>Em cada passo indica: documento, quem emite, quem recebe e que departamento trata.</li>
-          <li>Acrescenta o que acontece se um portátil chegar avariado e for devolvido.</li>
+          <li>A Pixel Norte compra 5 portáteis a um fornecedor, a 650 € cada, mais IVA a 23%. Paga a 30 dias.</li>
+          <li>Prepara um fluxograma com duas raias: Cliente (Pixel Norte) e Fornecedor. O tempo corre de cima para baixo.</li>
+          <li>Faz uma tabela de apoio com as colunas: Passo, Documento, Quem emite, Quem recebe, Departamento que trata.</li>
+          <li>Desenha o caminho normal, do pedido de orçamento ao recibo. Usa ovais para início e fim, retângulos para ações e losangos para decisões.</li>
+          <li>Na entrega, acrescenta um losango: "Mercadoria conferida e em bom estado?". Se sim, segue para a fatura.</li>
+          <li>Se não, desenha o caminho da devolução: reserva na guia, aviso ao fornecedor, guia de devolução, nota de crédito, novo envio ou reembolso.</li>
+          <li>Marca a data de vencimento da fatura (data + 30 dias) e quando é emitido o recibo.</li>
+          <li>Calcula o total da fatura (5 × 650 € + IVA) e escreve-o no passo da fatura.</li>
         </ol>
-        <p class="deliver"><strong>Entrega:</strong> fluxograma com raias (Cliente | Fornecedor).</p>
+        <details class="det"><summary>Confere o teu cálculo</summary>
+          <p>5 × 650 € = 3 250,00 €. IVA a 23% = 747,50 €. Total = <strong>3 997,50 €</strong>.</p></details>
+        <details class="det"><summary>Como vais ser avaliado/a</summary>
+          <ul><li>Os 6 documentos estão pela ordem certa, com emissor, recetor e departamento.</li><li>As raias estão certas e as setas têm o documento escrito.</li><li>A decisão sobre a mercadoria e o caminho da devolução existem.</li><li>O pagamento a 30 dias aparece (vencimento e recibo).</li><li>O total da fatura está correto.</li></ul></details>
+        <p class="deliver"><strong>Entrega:</strong> fluxograma com raias (Cliente | Fornecedor) e a tabela de apoio.</p>
         <label class="check"><input type="checkbox" id="a4"> Feita</label>
       </article>
     </div>
@@ -539,7 +808,7 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
 </main>
 
 <footer><div class="wrap">
-  <span>Fontes: Código das Sociedades Comerciais, Código do IVA, Código Cooperativo, Recomendação 2003/361/CE.</span>
+  <span>Fontes: Código das Sociedades Comerciais, Código do IVA (art. 36.º, prazo de emissão da fatura), Código Cooperativo, Recomendação 2003/361/CE, Portal das Finanças.</span>
   <span>GAI · Gestão e Aplicações Informáticas · Agrupamento de Escolas de Alvalade</span>
 </div></footer>
 
@@ -567,6 +836,7 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
       });
     }
     next.onclick=function(){ if(i<items.length-1){i++;}else{i=0;score=0;sc.textContent='0 / '+items.length;} render(); };
+    sc.textContent='0 / '+items.length;
     render();
   }
 
@@ -576,7 +846,11 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
     {q:'Navegantes Digitais, S.A.', a:'Soc. Anónima', why:'"S.A.": capital em ações, mínimo 50 000 €.'},
     {q:'Ana Ribeiro, Cabeleireira', a:'ENI', why:'Só o nome da pessoa: empresário em nome individual, responsabilidade ilimitada.'},
     {q:'AgroVale, CRL', a:'Cooperativa', why:'"CRL" significa Cooperativa de Responsabilidade Limitada.'},
-    {q:'João Silva, EIRL', a:'EIRL', why:'Estabelecimento Individual de Responsabilidade Limitada, capital mínimo 5 000 €.'}
+    {q:'João Silva, EIRL', a:'EIRL', why:'Estabelecimento Individual de Responsabilidade Limitada, capital mínimo 5 000 €.'},
+    {q:'Três amigos abrem uma loja e dividem o capital em 3 quotas.', a:'Soc. por Quotas', why:'Vários sócios, capital em quotas e responsabilidade limitada: Lda.'},
+    {q:'Empresa com 200 acionistas, cotada na bolsa.', a:'Soc. Anónima', why:'Capital dividido em ações e muitos investidores: S.A.'},
+    {q:'O Rui abre sozinho uma empresa de informática e não quer arriscar a casa se correr mal.', a:'Unipessoal por Quotas', why:'Um só sócio e responsabilidade limitada ao capital: protege o património pessoal.'},
+    {q:'Os produtores de azeite de uma aldeia juntam-se e cada um tem um voto.', a:'Cooperativa', why:'Um membro, um voto, seja qual for o capital.'}
   ], ['ENI','EIRL','Unipessoal por Quotas','Soc. por Quotas','Soc. Anónima','Cooperativa']);
 
   quiz(document.getElementById('quizFuncao'), [
@@ -588,9 +862,35 @@ footer .wrap{padding-block:28px 48px;display:grid;gap:6px;font-size:1rem}
     {q:'Pedir um empréstimo ao banco para comprar uma carrinha.', a:'Financeira', why:'Obter financiamento é função financeira.'},
     {q:'Negociar preço com um novo fornecedor de peças.', a:'Comercial', why:'Compras e negociação com fornecedores são função comercial.'},
     {q:'Calcular os salários do mês.', a:'Recursos Humanos', why:'Processamento salarial é de RH (o pagamento sai pela tesouraria).'},
-    {q:'Controlar o stock de discos SSD.', a:'Produção', why:'Gerir os materiais usados no serviço é função de produção.'},
-    {q:'Definir os objetivos da empresa para o próximo ano.', a:'Administrativa', why:'Planear e dirigir é a gestão (função administrativa).'}
+    {q:'Controlar o stock de peças de reparação (discos SSD, ecrãs).', a:'Produção', why:'Gerir os materiais usados no serviço é função de produção.'},
+    {q:'Definir os objetivos da empresa para o próximo ano.', a:'Administrativa', why:'Planear e dirigir é a gestão (função administrativa).'},
+    {q:'Planear a ordem pela qual as reparações da semana são feitas.', a:'Produção', why:'Planear o trabalho que presta o serviço é produção.'},
+    {q:'Entregar a declaração mensal de IVA às Finanças.', a:'Financeira', why:'Impostos fazem parte da contabilidade, que é função financeira.'},
+    {q:'Marcar as férias dos técnicos no mapa de férias.', a:'Recursos Humanos', why:'Férias e faltas são gestão de pessoas.'},
+    {q:'Responder a um cliente que reclama de uma garantia.', a:'Comercial', why:'Apoio pós-venda e garantias são função comercial.'},
+    {q:'Organizar a reunião mensal e redigir a ata.', a:'Administrativa', why:'Organização, expediente e registo são tarefas administrativas.'}
   ], ['Comercial','Financeira','Recursos Humanos','Produção','Administrativa']);
+
+  quiz(document.getElementById('quizEstrutura'), [
+    {q:'Café de bairro: o dono dá ordens diretas ao empregado de mesa e à cozinheira.', a:'Linear', why:'Uma só linha de autoridade, do dono para quem trabalha.'},
+    {q:'Empresa com departamentos de Vendas, Finanças e RH, cada um com um diretor.', a:'Funcional', why:'Departamentos organizados por função.'},
+    {q:'Multinacional com uma divisão para a Europa e outra para a Ásia, cada uma com o seu comercial e a sua produção.', a:'Divisional', why:'Divisões por região, cada uma com as suas funções.'},
+    {q:'Um programador responde ao chefe de Programação e ao gestor do projeto Loja Online.', a:'Matricial', why:'Dois chefes: um de função e um de projeto.'},
+    {q:'Empresa com uma divisão de telemóveis e outra de televisões, cada uma com as suas funções.', a:'Divisional', why:'Divisões por produto.'},
+    {q:'Oficina de 4 pessoas onde o chefe dá ordens diretas a todos.', a:'Linear', why:'Poucas pessoas e ordens diretas: estrutura simples.'},
+    {q:'Numa empresa, a Produção e o Comercial quase não comunicam entre si.', a:'Funcional', why:'O isolamento entre departamentos é o grande problema da estrutura funcional.'}
+  ], ['Linear','Funcional','Divisional','Matricial']);
+
+  quiz(document.getElementById('quizDoc'), [
+    {q:'A Pixel Norte quer saber quanto custam 5 portáteis.', a:'Pedido de orçamento', why:'O cliente pede preços e condições.'},
+    {q:'O fornecedor responde com preços, prazo de entrega e validade.', a:'Orçamento', why:'É a proposta do fornecedor.'},
+    {q:'A Pixel Norte confirma a compra dos 5 portáteis.', a:'Nota de encomenda', why:'O cliente confirma o que quer, em que quantidade e a que preço.'},
+    {q:'O motorista entrega as caixas e o Paulo assina e confere.', a:'Guia de remessa', why:'Acompanha a mercadoria e prova a entrega.'},
+    {q:'O fornecedor pede o pagamento de 3 250 € mais IVA.', a:'Fatura', why:'É o documento fiscal que diz o valor a pagar.'},
+    {q:'A Pixel Norte paga por transferência e recebe a prova do pagamento.', a:'Recibo', why:'Prova que o pagamento foi feito.'},
+    {q:'Um portátil veio com o ecrã partido e foi devolvido: o fornecedor reduz o valor da fatura.', a:'Nota de crédito', why:'Diminui o valor de uma fatura já emitida.'},
+    {q:'O fornecedor esqueceu-se de cobrar os portes de envio.', a:'Nota de débito', why:'Aumenta o valor de uma fatura já emitida.'}
+  ], ['Pedido de orçamento','Orçamento','Nota de encomenda','Guia de remessa','Fatura','Recibo','Nota de crédito','Nota de débito']);
 
   var ids=['a1','a2','a3','a4'];
   function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v);}catch(e){return null;}}
